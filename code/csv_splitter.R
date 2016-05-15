@@ -35,22 +35,16 @@ if(!file.exists(paste0(data_dir, file_name))){
 }
 
 # check if input is integer
+is_not_int_error<-function(){
+  print(paste(rows_per_csv, "is not an integer."))
+  stop()
+}
 rows_per_csv<-tryCatch(as.numeric(rows_per_csv),
-                       error=function(e){
-                         print(paste(rows_per_csv, "is not an integer."))
-                         stop()
-                       },
-                       warning=function(w){
-                         print(paste(rows_per_csv, "is not an integer."))
-                         stop()
-                       },
+                       error=function(e) is_not_int_error(),
+                       warning=function(w) is_not_int_error(),
                        finally={
-                         if(as.numeric(rows_per_csv)%%1!=0){
-                           print(paste(rows_per_csv, "is not an integer."))
-                           stop()
-                         }else{
-                           as.integer(rows_per_csv)
-                         }
+                         if(as.numeric(rows_per_csv)%%1!=0) is_not_int_error()
+                         else as.integer(rows_per_csv)
                        })
 
 # create output dir if it does not exists
