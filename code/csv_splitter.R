@@ -3,13 +3,13 @@
 # load packages
 package_loader<-function(package_names){
   for(i in package_names){
-    #     if(!is.element(i, .packages())) install.packages(i, character.only=T)
     if(!i %in% rownames(installed.packages())) install.packages(i, repos="http://cran.r-project.org")
     library(i, character.only=T)
   }
 }
 pn<-c("data.table", "stringr", "tidyr")
 package_loader(pn)
+
 
 ### parameters ###
 
