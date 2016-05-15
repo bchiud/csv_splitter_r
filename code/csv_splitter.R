@@ -7,8 +7,7 @@ package_loader<-function(package_names){
     library(i, character.only=T)
   }
 }
-pn<-c("data.table", "stringr", "tidyr")
-package_loader(pn)
+package_loader(c("data.table", "stringr", "tidyr"))
 
 
 ### parameters ###
