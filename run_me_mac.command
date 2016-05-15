@@ -26,6 +26,6 @@ function output_rows() {
 
 intput_file_getter
 output_rows
-echo "Processing $input_file_name..."
+echo "Starting process for $input_file_name..."
 
 Rscript code/csv_splitter.R $input_file_name $rows
