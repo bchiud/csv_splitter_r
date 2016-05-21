@@ -7,7 +7,7 @@ package_loader<-function(package_names){
     library(i, character.only=T)
   }
 }
-package_names<-c("data.table", "stringr")
+package_names<-c("stringr")
 package_loader(package_names)
 
 
